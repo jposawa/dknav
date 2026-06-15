@@ -1,0 +1,131 @@
+.page {
+	gap: var(--space-5);
+}
+
+.title {
+	font-size: var(--text-xl);
+	color: var(--color-text-strong);
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	background: var(--color-bg-elevated);
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--border-radius-lg);
+	padding: var(--space-5);
+}
+
+.sectionTitle {
+	font-size: var(--text-lg);
+	color: var(--color-text-strong);
+}
+
+.infoRow {
+	display: flex;
+	gap: var(--space-3);
+	align-items: baseline;
+}
+
+.infoLabel {
+	color: var(--color-text-muted);
+	font-size: var(--text-sm);
+}
+
+.infoValue {
+	color: var(--color-text-strong);
+	font-size: var(--text-sm);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	color: var(--color-text);
+	font-size: var(--text-sm);
+
+	input,
+	select,
+	textarea {
+		padding: var(--space-3) var(--space-4);
+		border: var(--border-width) solid var(--color-border);
+		border-radius: var(--border-radius-md);
+		background: var(--color-bg);
+		color: var(--color-text-strong);
+		font-size: var(--text-md);
+		font-family: var(--font-sans);
+	}
+
+	textarea {
+		resize: vertical;
+	}
+}
+
+.saveButton {
+	align-self: flex-end;
+	padding: var(--space-3) var(--space-5);
+	background: var(--color-primary);
+	color: #fff;
+	border: none;
+	border-radius: var(--border-radius-md);
+	font-size: var(--text-md);
+	font-family: var(--font-sans);
+	cursor: pointer;
+}
+
+.logoutButton {
+	align-self: flex-start;
+	padding: var(--space-3) var(--space-5);
+	background: transparent;
+	color: var(--color-danger);
+	border: var(--border-width) solid var(--color-danger);
+	border-radius: var(--border-radius-md);
+	font-size: var(--text-md);
+	font-family: var(--font-sans);
+	cursor: pointer;
+}
+
+.logoutConfirm {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.logoutConfirmText {
+	color: var(--color-text);
+	font-size: var(--text-sm);
+}
+
+.logoutActions {
+	display: flex;
+	gap: var(--space-3);
+}
+
+.cancelButton {
+	padding: var(--space-3) var(--space-5);
+	background: transparent;
+	color: var(--color-text);
+	border: var(--border-width) solid var(--color-border);
+	border-radius: var(--border-radius-md);
+	font-size: var(--text-md);
+	font-family: var(--font-sans);
+	cursor: pointer;
+}
+
+.confirmLogoutButton {
+	padding: var(--space-3) var(--space-5);
+	background: var(--color-danger);
+	color: #fff;
+	border: none;
+	border-radius: var(--border-radius-md);
+	font-size: var(--text-md);
+	font-family: var(--font-sans);
+	cursor: pointer;
+}

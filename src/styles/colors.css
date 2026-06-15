@@ -1,0 +1,44 @@
+/* ─── @property registrations ──────────────────────────────────────────── */
+/* Type declarations for color tokens. Enables transitions between values   */
+/* (e.g. theme-switch animation). initial-value = light-theme fallback used  */
+/* before any theme class is applied.                                        */
+@property --color-primary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0070E0;
+}
+@property --color-secondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0EA472;
+}
+@property --color-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --color-bg-elevated {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f9f9fb;
+}
+@property --color-surface {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4f3ec;
+}
+@property --color-text {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #6b6375;
+}
+@property --color-text-strong {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #08060d;
+}
+@property --color-border {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e5e4e7;
+}
