@@ -1,3 +1,4 @@
+import { AppstoreOutlined, UserOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 
 import { ROUTES } from "@/constants";
@@ -13,6 +14,7 @@ export const MainNav = () => {
           isActive ? `${styles.link} ${styles.linkActive}` : styles.link
         }
       >
+        <AppstoreOutlined />
         {ROUTES.MODULES.label}
       </NavLink>
 
@@ -22,6 +24,7 @@ export const MainNav = () => {
           isActive ? `${styles.link} ${styles.linkActive}` : styles.link
         }
       >
+        <UserOutlined />
         {ROUTES.PROFILE.label}
       </NavLink>
     </nav>
