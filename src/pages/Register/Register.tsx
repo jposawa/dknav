@@ -2,6 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { CustomButton, CustomInput } from "@/components";
 import { ROUTES } from "@/constants";
 
 import styles from "./Register.module.css";
@@ -21,53 +22,45 @@ export const Register = () => {
       <h1 className={styles.title}>Criar conta</h1>
 
       <form className={styles.form} onSubmit={handleRegisterSubmit}>
-        <label className={styles.field}>
-          Nome completo
-          <input
-            type="text"
-            value={fullName}
-            placeholder="João da Silva"
-            autoComplete="name"
-            onChange={(event) => setFullName(event.target.value)}
-          />
-        </label>
+        <CustomInput
+          label="Nome completo"
+          type="text"
+          value={fullName}
+          placeholder="João da Silva"
+          autoComplete="name"
+          onChange={(event) => setFullName(event.target.value)}
+        />
 
-        <label className={styles.field}>
-          E-mail
-          <input
-            type="email"
-            value={email}
-            placeholder="seu@email.com"
-            autoComplete="email"
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
+        <CustomInput
+          label="E-mail"
+          type="email"
+          value={email}
+          placeholder="seu@email.com"
+          autoComplete="email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
 
-        <label className={styles.field}>
-          Senha
-          <input
-            type="password"
-            value={password}
-            placeholder="••••••••"
-            autoComplete="new-password"
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        <CustomInput
+          label="Senha"
+          type="password"
+          value={password}
+          placeholder="••••••••"
+          autoComplete="new-password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
 
-        <label className={styles.field}>
-          Confirmar senha
-          <input
-            type="password"
-            value={passwordConfirm}
-            placeholder="••••••••"
-            autoComplete="new-password"
-            onChange={(event) => setPasswordConfirm(event.target.value)}
-          />
-        </label>
+        <CustomInput
+          label="Confirmar senha"
+          type="password"
+          value={passwordConfirm}
+          placeholder="••••••••"
+          autoComplete="new-password"
+          onChange={(event) => setPasswordConfirm(event.target.value)}
+        />
 
-        <button type="submit" className={styles.submitButton}>
+        <CustomButton type="submit" intent="primary">
           Criar conta
-        </button>
+        </CustomButton>
       </form>
 
       <p className={styles.footerText}>

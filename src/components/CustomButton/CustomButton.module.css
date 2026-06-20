@@ -55,3 +55,8 @@
   --btn-accent: var(--color-secondary);
   --btn-accent-bg: var(--color-secondary-bg);
 }
+
+.danger {
+  --btn-accent: var(--color-danger);
+  --btn-accent-bg: var(--color-danger-bg);
+}

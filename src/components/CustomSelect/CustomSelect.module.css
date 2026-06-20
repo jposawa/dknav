@@ -1,0 +1,46 @@
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.label {
+	font-size: var(--text-sm);
+	color: var(--color-text-muted);
+}
+
+.select {
+	width: 100%;
+	padding: var(--space-3) var(--space-4);
+	border-radius: var(--border-radius-md);
+	font-size: var(--text-md);
+	font-family: var(--font-sans);
+	color: var(--color-text-strong);
+	cursor: pointer;
+	transition: border-color 0.15s ease;
+
+	&:focus {
+		outline: none;
+		border-color: var(--select-accent, var(--color-border));
+	}
+}
+
+/* — variants — */
+.filled {
+	background: var(--color-bg);
+	border: var(--border-width) solid var(--color-border);
+}
+
+.outline {
+	background: transparent;
+	border: var(--border-width) solid var(--color-border);
+}
+
+/* — intents (set accent token consumed by focus) — */
+.primary {
+	--select-accent: var(--color-primary);
+}
+
+.secondary {
+	--select-accent: var(--color-secondary);
+}

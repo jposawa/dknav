@@ -1,5 +1,13 @@
 .page {
-	gap: var(--space-5);
+	gap: 0;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: var(--space-5);
+	flex-shrink: 0;
 }
 
 .title {
@@ -8,13 +16,96 @@
 }
 
 .section {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 	background: var(--color-bg-elevated);
 	border: var(--border-width) solid var(--color-border);
 	border-radius: var(--border-radius-lg);
-	padding: var(--space-5);
 }
 
-.placeholder {
-	color: var(--color-text-muted);
+.table {
+	flex: 1;
+	min-height: 0;
+}
+
+/* Antd table overrides — match design system */
+.table :global(.ant-table) {
+	background: transparent;
+	color: var(--color-text);
+}
+
+.table :global(.ant-table-thead > tr > th),
+.table :global(.ant-table-thead > tr > td) {
+	background: var(--color-surface);
+	color: var(--color-text-strong);
+	border-bottom: var(--border-width) solid var(--color-border);
 	font-size: var(--text-sm);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.table :global(.ant-table-tbody > tr > td) {
+	border-bottom: var(--border-width) solid var(--color-border);
+	color: var(--color-text);
+	font-size: var(--text-sm);
+}
+
+.table :global(.ant-table-thead > tr > th.ant-table-column-sort) {
+	background: var(--color-surface) !important;
+}
+
+.table :global(.ant-table-tbody > tr > td.ant-table-column-sort) {
+	background: transparent !important;
+}
+
+.table :global(.ant-table-tbody > tr:hover > td),
+.table :global(.ant-table-tbody > tr:hover > td.ant-table-column-sort),
+.table :global(.ant-table-tbody > tr > td.ant-table-cell-row-hover) {
+	background: var(--color-primary-bg) !important;
+}
+
+.table :global(.ant-pagination) {
+	padding: var(--space-2) var(--space-4);
+	margin: 0;
+	flex-shrink: 0;
+}
+
+.table :global(.ant-empty-description) {
+	color: var(--color-text-muted);
+}
+
+.table :global(.ant-spin-container) {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.table :global(.ant-table-container) {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.table :global(.ant-table-content) {
+	flex: 1;
+	min-height: 0;
+	overflow: auto !important;
+}
+
+.actions {
+	display: flex;
+	gap: var(--space-1);
+}
+
+.editButton {
+	color: var(--color-primary);
+}
+
+.editButton:hover {
+	color: var(--color-secondary) !important;
 }

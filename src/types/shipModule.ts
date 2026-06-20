@@ -5,11 +5,12 @@ export type DamageType = "physic" | "magic";
 export type PartRarity = "common" | "uncommon" | "rare" | "epic" | "legendary";
 
 export type PartCategory =
+  | "arcane"
   | "propulsion"
   | "weapon"
   | "shield"
   | "sensor"
-  | "arcane"
+  | "flux"
   | "structural"
   | "support";
 

@@ -1,16 +1,28 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { useAtomValue } from "jotai";
+import { Link, Navigate } from "react-router-dom";
 
-import { ROUTES } from "@/constants";
-import { useAuth } from "@/hooks";
+import { CustomButton, CustomInput } from "@/components";
+import { DEFAULT_ROUTE, ROUTES } from "@/constants";
+import { useAuth, useConfig } from "@/hooks";
+import { isAuthenticatedAtom } from "@/states";
 
 import styles from "./Login.module.css";
 
 export const Login = () => {
+  const isAuthenticated = useAtomValue(isAuthenticatedAtom);
+  const { config } = useConfig();
   const { signInWithGoogle } = useAuth();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const authenticatedRedirect =
+    config?.authLandingPage ?? DEFAULT_ROUTE.authenticated;
+
+  if (isAuthenticated) {
+    return <Navigate to={authenticatedRedirect} replace />;
+  }
 
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,31 +66,27 @@ export const Login = () => {
 
       <div className={styles.hiddenSection}>
         <form className={styles.form} onSubmit={handleLoginSubmit}>
-          <label className={styles.field}>
-            E-mail
-            <input
-              type="email"
-              value={email}
-              placeholder="seu@email.com"
-              autoComplete="email"
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </label>
+          <CustomInput
+            label="E-mail"
+            type="email"
+            value={email}
+            placeholder="seu@email.com"
+            autoComplete="email"
+            onChange={(event) => setEmail(event.target.value)}
+          />
 
-          <label className={styles.field}>
-            Senha
-            <input
-              type="password"
-              value={password}
-              placeholder="••••••••"
-              autoComplete="current-password"
-              onChange={(event) => setPassword(event.target.value)}
-            />
-          </label>
+          <CustomInput
+            label="Senha"
+            type="password"
+            value={password}
+            placeholder="••••••••"
+            autoComplete="current-password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-          <button type="submit" className={styles.submitButton}>
+          <CustomButton type="submit" intent="primary">
             Entrar
-          </button>
+          </CustomButton>
         </form>
 
         <p className={styles.footerText}>

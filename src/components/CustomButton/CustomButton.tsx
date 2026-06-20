@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import styles from "./CustomButton.module.css";
 
-type ButtonIntent = "primary" | "secondary" | "link";
+type ButtonIntent = "primary" | "secondary" | "danger" | "link";
 type ButtonVariant = "filled" | "outline" | "text";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

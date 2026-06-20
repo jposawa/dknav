@@ -32,5 +32,8 @@ export const useConfig = () => {
 			});
 	}, [config, setConfig]);
 
-	return { config, isConfigLoading };
+	return {
+		config,
+		isConfigLoading,
+	};
 };

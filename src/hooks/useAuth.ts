@@ -1,13 +1,22 @@
 import React from "react";
 
-import { GoogleAuthProvider, signInWithPopup, signOut, type User as FirebaseUser } from "firebase/auth";
+import {
+	GoogleAuthProvider,
+	signInWithPopup,
+	signOut,
+	type User as FirebaseUser,
+} from "firebase/auth";
 import { useAtom, useAtomValue } from "jotai";
 import { useNavigate } from "react-router-dom";
 
 import { DEFAULT_ROUTE, ROUTES, STORAGE_KEY } from "@/constants";
 import { loadStorage, removeStorage, saveStorage } from "@/helpers";
 import { firebaseAuth } from "@/lib/firebase";
-import { currentUserAtom, isAuthenticatedAtom, isAuthLoadingAtom } from "@/states";
+import {
+	currentUserAtom,
+	isAuthenticatedAtom,
+	isAuthLoadingAtom,
+} from "@/states";
 import type { User } from "@/types";
 
 import { useDatabase } from "./useDatabase";
@@ -91,10 +100,19 @@ export const useAuth = ({ authedRoute = false }: UseAuthOptions = {}) => {
 		}
 
 		setCurrentUser(resolvedUser);
-		saveStorage(STORAGE_KEY.USER, resolvedUser, { needParse: true, isPersistent: true });
+		saveStorage(STORAGE_KEY.USER, resolvedUser, {
+			needParse: true,
+			isPersistent: true,
+		});
 		setIsAuthenticated(true);
 		navigate(DEFAULT_ROUTE.authenticated, { replace: true });
-	}, [getData, insertUserToDatabase, navigate, setCurrentUser, setIsAuthenticated]);
+	}, [
+		getData,
+		insertUserToDatabase,
+		navigate,
+		setCurrentUser,
+		setIsAuthenticated,
+	]);
 
 	const logout = React.useCallback(() => {
 		signOut(firebaseAuth)
@@ -109,5 +127,10 @@ export const useAuth = ({ authedRoute = false }: UseAuthOptions = {}) => {
 			});
 	}, [navigate, setCurrentUser, setIsAuthenticated]);
 
-	return { isAuthenticated, logout, signInWithGoogle };
+	return {
+		currentUser,
+		isAuthenticated,
+		logout,
+		signInWithGoogle,
+	};
 };

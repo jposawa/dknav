@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { useAtom } from "jotai";
 
+import { CustomButton, CustomInput } from "@/components";
 import { STORAGE_KEY } from "@/constants";
 import { saveStorage } from "@/helpers";
 import { useAuth, useDatabase } from "@/hooks";
@@ -60,25 +61,21 @@ export const Profile = () => {
 					className={styles.form}
 					onSubmit={handleDisplayNameFormSubmit}
 				>
-					<label className={styles.field}>
-						Nome
-						<input
-							type="text"
-							value={displayName}
-							placeholder="Seu nome"
-							onChange={(event) =>
-								setDisplayName(event.target.value)
-							}
-						/>
-					</label>
+					<CustomInput
+						label="Nome"
+						value={displayName}
+						placeholder="Seu nome"
+						onChange={(event) => setDisplayName(event.target.value)}
+					/>
 
-					<button
+					<CustomButton
 						type="submit"
+						intent="primary"
 						className={styles.saveButton}
 						disabled={isSaving}
 					>
 						{isSaving ? "Salvando..." : "Salvar"}
-					</button>
+					</CustomButton>
 				</form>
 			</section>
 
@@ -90,30 +87,29 @@ export const Profile = () => {
 							Tem certeza que deseja sair?
 						</span>
 						<div className={styles.logoutActions}>
-							<button
-								type="button"
-								className={styles.cancelButton}
+							<CustomButton
+								variant="outline"
 								onClick={() => setIsConfirmingLogout(false)}
 							>
 								Cancelar
-							</button>
-							<button
-								type="button"
-								className={styles.confirmLogoutButton}
+							</CustomButton>
+							<CustomButton
+								intent="danger"
 								onClick={logout}
 							>
 								Sair
-							</button>
+							</CustomButton>
 						</div>
 					</div>
 				) : (
-					<button
-						type="button"
+					<CustomButton
+						intent="danger"
+						variant="outline"
 						className={styles.logoutButton}
 						onClick={() => setIsConfirmingLogout(true)}
 					>
 						Sair da conta
-					</button>
+					</CustomButton>
 				)}
 			</section>
 		</main>
